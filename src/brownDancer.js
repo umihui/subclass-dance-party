@@ -2,7 +2,7 @@ var makeBrownDancer = function(top, left, timeBetweenSteps) {
 
   makeDancer.call(this, top, left, timeBetweenSteps);
   
-  this.$node = $('<img src="src/2015-brown.png" alt = "" height="42" width="42" style="position:absolute;">');
+  this.$node = $('<img src="src/polarBear.gif" alt = "" height="225" width="auto" style="position:absolute; border-radius: 75px;">');
   this.setPosition.call(this, top, left);
   this.step();
   
@@ -14,7 +14,7 @@ makeBrownDancer.prototype.constructor = makeBrownDancer;
 makeBrownDancer.prototype.oldStep = makeDancer.prototype.step;
 
 makeBrownDancer.prototype.step = function() {
-  this.$node.fadeIn('slow');
-  this.$node.fadeOut('slow');
+  // this.$node.fadeIn('slow');
+  // this.$node.fadeOut('slow');
   this.oldStep();
 };
