@@ -2,7 +2,7 @@ var makePopDancer = function(top, left, timeBetweenSteps) {
 
   makeDancer.call(this, top, left, timeBetweenSteps);
 
-  this.oldStep(timeBetweenSteps);
+  this.step();
   
 };
 
@@ -11,8 +11,8 @@ makePopDancer.prototype.constructor = makePopDancer;
 
 makePopDancer.prototype.oldStep = makeDancer.prototype.step;
 
-makePopDancer.prototype.step = function(timeBetweenSteps) {
-  this.oldStep(timeBetweenSteps);
+makePopDancer.prototype.step = function() {
+  this.oldStep();
   this.$node.fadeIn('slow', function() {
     $(this).addClass('newDancer');
   });
