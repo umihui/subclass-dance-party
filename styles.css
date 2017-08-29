@@ -13,6 +13,12 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
+
+.title, .addPopDancerButton {
+  padding:5px 12px;
+  float:right;
+}
+
 .topbar{
   height:32px;
   background-color: #555;
@@ -24,4 +30,19 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+
+.newDancer {
+  border: 10px solid blue;
+  border-radius:10px;
+  position: absolute;
+}
+
+.addBrownDancerButton {
+  padding:5px 12px;
+  float:right;
+}
+
+img {
+  display: inline;
 }

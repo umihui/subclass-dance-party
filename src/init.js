@@ -15,22 +15,43 @@ $(document).ready(function() {
      * A new object of the given type will be created and added
      * to the stage.
      */
-    var dancerMakerFunctionName = $(this).data('makeDancer');
+    var dancerMakerFunctionName = $(this).data('makeBlinkyDancer');
     //console.log(dancerMakerFunctionName);
 
     // get the maker function for the kind of dancer we're supposed to make
-    var dancerMakerFunction = window['makeDancer'];
+    var dancerMakerFunction = window['makeBlinkyDancer'];
 
     // make a dancer with a random position
-    
-    console.log($('body').height());
 
     var dancer = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
-    dancer.setPosition();
+    $('body').append(dancer.$node);
+  });
+
+  $('.addPopDancerButton').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('makePopDancer');
+    var dancerMakerFunction = window['makePopDancer'];
+
+    var dancer = new dancerMakerFunction (
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
+      400
+    );
+    $('body').append(dancer.$node);
+  });
+
+  $('.addBrownDancerButton').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('makeBrownDancer');
+    var dancerMakerFunction = window['makeBrownDancer'];
+
+    var dancer = new dancerMakerFunction (
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
+      400
+    );
     $('body').append(dancer.$node);
   });
 });
