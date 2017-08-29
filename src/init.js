@@ -1,5 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
+  
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -15,7 +16,7 @@ $(document).ready(function() {
      * A new object of the given type will be created and added
      * to the stage.
      */
-    var dancerMakerFunctionName = $(this).data('makeBlinkyDancer');
+    var dancerMakerFunctionName = $(this).data('data-dancer-maker-function-name');
     //console.log(dancerMakerFunctionName);
 
     // get the maker function for the kind of dancer we're supposed to make
@@ -29,6 +30,7 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
   });
 
   $('.addPopDancerButton').on('click', function(event) {
@@ -41,6 +43,7 @@ $(document).ready(function() {
       400
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
   });
 
   $('.addBrownDancerButton').on('click', function(event) {
@@ -53,6 +56,18 @@ $(document).ready(function() {
       400
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
+    console.log(window.dancers);
+  });
+
+  $('.lineUpButton').on('click', function(event) {
+    var top = $('body').height() / 2;
+    var size = $('body').width() / window.dancers.length;
+    var left = 0;
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].setPosition(top, left);
+      left += size;
+    }
   });
 });
 
