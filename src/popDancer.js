@@ -1,7 +1,7 @@
 var makePopDancer = function(top, left, timeBetweenSteps) {
 
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<img src="src/cat.png" alt = "" height="160" width="auto" style="position:absolute; border-radius: 75px;">');
+  this.$node = $('<img class="dancer" src="src/cat.png" alt = "" height="160" width="auto" style="position:absolute; border-radius: 75px;">');
   this.setPosition.call(this, top, left);
   this.step();
   
