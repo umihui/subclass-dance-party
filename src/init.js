@@ -31,6 +31,7 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
+    console.log(window.dancers);
   });
 
   $('.addPopDancerButton').on('click', function(event) {
@@ -57,7 +58,7 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
-    console.log(window.dancers);
+    //console.log(window.dancers);
   });
 
   $('.lineUpButton').on('click', function(event) {
@@ -69,5 +70,29 @@ $(document).ready(function() {
       left += size;
     }
   });
+
+  $('.scatterButton').on('click', function(event) {
+
+    for (var i = 0; i < window.dancers.length; i++) {
+      var top = $('body').height() * Math.random();    
+      var left = $('body').width() * Math.random();
+      window.dancers[i].setPosition(top, left);
+    }
+  });
+
+  $('body').on('mouseenter', 'img', function() {
+    console.log('hovered');
+    //$(this).css({"width": "width * 2", "height": "auto"});
+    $(this).css("transform", "scale(2)");
+  });
+
+  $('body').on('mouseleave', 'img', function() {
+    //console.log('Left');
+    $(this).css("transform", "scale(1)");
+  });
+
+  // $('.dancer').on('mousehover', function(event) {
+  //   this.$node.animate({'width': '150%', 'height': '150%'}, 400);
+  // });
 });
 
