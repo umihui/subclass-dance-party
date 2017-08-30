@@ -1,5 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
+  window.stillDancers = [];
   
 
   $('.addDancerButton').on('click', function(event) {
@@ -31,7 +32,6 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
-    console.log(window.dancers);
   });
 
   $('.addPopDancerButton').on('click', function(event) {
@@ -45,6 +45,7 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
+    window.stillDancers.push(dancer);
   });
 
   $('.addBrownDancerButton').on('click', function(event) {
@@ -58,25 +59,25 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
-    //console.log(window.dancers);
+    window.stillDancers.push(dancer);
   });
 
   $('.lineUpButton').on('click', function(event) {
     var top = $('body').height() / 2;
-    var size = $('body').width() / window.dancers.length;
+    var size = $('body').width() / window.stillDancers.length;
     var left = 0;
-    for (var i = 0; i < window.dancers.length; i++) {
-      window.dancers[i].setPosition(top, left);
+    for (var i = 0; i < window.stillDancers.length; i++) {
+      window.stillDancers[i].setPosition(top, left);
       left += size;
     }
   });
 
   $('.scatterButton').on('click', function(event) {
 
-    for (var i = 0; i < window.dancers.length; i++) {
+    for (var i = 0; i < window.stillDancers.length; i++) {
       var top = $('body').height() * Math.random();    
       var left = $('body').width() * Math.random();
-      window.dancers[i].setPosition(top, left);
+      window.stillDancers[i].setPosition(top, left);
     }
   });
 
@@ -91,6 +92,21 @@ $(document).ready(function() {
     $(this).css("transform", "scale(1)");
   });
 
+  $('body').on('click', 'img', function() {
+    //var currentIndex = window.stillDancers.indexOf(this);
+    //console.log(currentIndex);
+    var randomIndex = Math.floor(Math.random() * window.stillDancers.length);
+    var newTop = window.stillDancers[randomIndex].$node.css("top");
+    var newLeft = window.stillDancers[randomIndex].$node.css("left");
+    $(this).animate({"left": newTop, "top": newLeft});
+    console.log(newTop, newLeft);
+
+    // while (randomIndex === currentIndex) {
+    //   randomIndex = Math.floor(Math.random() * window.stillDancers.length);
+    // }
+    // console.log(window.stillDancers[randomIndex]);
+
+  });
   // $('.dancer').on('mousehover', function(event) {
   //   this.$node.animate({'width': '150%', 'height': '150%'}, 400);
   // });
