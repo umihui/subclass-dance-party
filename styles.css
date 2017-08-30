@@ -30,17 +30,8 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
-  border:10px solid red;
-  border-radius:10px;
-  position:absolute;
-}
 
-/*.newDancer {
-  border: 10px solid blue;
-  border-radius:10px;
-  position: absolute;
-}*/
+
 .newDancer {
   transform: rotate(15deg);
 }
@@ -48,10 +39,6 @@ body, a:link, a:visited, a:active{
 .addBrownDancerButton {
   padding:5px 12px;
   float:right;
-}
-
-img {
-  display: inline;
 }
 
 .lineUp {
